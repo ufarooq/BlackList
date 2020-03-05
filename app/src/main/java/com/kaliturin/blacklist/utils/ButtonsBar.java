@@ -16,7 +16,7 @@
 
 package com.kaliturin.blacklist.utils;
 
-import android.support.annotation.IdRes;
+import androidx.annotation.IdRes;
 import android.view.View;
 import android.widget.TextView;
 

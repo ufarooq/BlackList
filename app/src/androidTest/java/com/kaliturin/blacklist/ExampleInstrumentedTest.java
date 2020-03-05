@@ -2,10 +2,9 @@ package com.kaliturin.blacklist;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import com.kaliturin.blacklist.utils.ContactsAccessHelper;

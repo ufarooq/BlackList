@@ -20,9 +20,12 @@ package com.kaliturin.blacklist.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kaliturin.blacklist.R;
+import com.kaliturin.blacklist.SMSSendViewModel;
 import com.kaliturin.blacklist.services.SMSSendService;
 import com.kaliturin.blacklist.utils.ContactsAccessHelper;
 import com.kaliturin.blacklist.utils.ContactsAccessHelper.ContactSourceType;
@@ -51,6 +55,7 @@ import java.util.Map;
  */
 public class SMSSendFragment extends Fragment implements FragmentArguments {
     private Map<String, String> number2NameMap = new HashMap<>();
+    private SMSSendViewModel viewModel;
 
     public SMSSendFragment() {
         // Required empty public constructor
@@ -67,12 +72,19 @@ public class SMSSendFragment extends Fragment implements FragmentArguments {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        viewModel = new ViewModelProvider(this).get(SMSSendViewModel.class);
         // message counter view
-        TextView counterTextView = (TextView) view.findViewById(R.id.text_message_counter);
+        final TextView counterTextView = (TextView) view.findViewById(R.id.text_message_counter);
+        viewModel.getCounterTextViewText().observe(getActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                counterTextView.setText(s);
+            }
+        });
         // message body edit
         EditText messageEdit = (EditText) view.findViewById(R.id.text_message);
         // init message length counting
-        messageEdit.addTextChangedListener(new MessageLengthCounter(counterTextView));
+        messageEdit.addTextChangedListener(new MessageLengthCounter(viewModel));
         // phone number edit
         final EditText numberEdit = (EditText) view.findViewById(R.id.edit_number);
 

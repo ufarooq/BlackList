@@ -20,6 +20,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
 
+import com.kaliturin.blacklist.SMSSendViewModel;
+
 /**
  * Counts the length of the SMS-message being edited.
  * Shows the count in the TextView.
@@ -30,9 +32,9 @@ public class MessageLengthCounter implements TextWatcher {
     private static final int SMS_LENGTH_UNICODE = 70;
     private static final int SMS_LENGTH2_UNICODE = 67;
 
-    private TextView counterTextView;
+    private SMSSendViewModel counterTextView;
 
-    public MessageLengthCounter(TextView counterTextView) {
+    public MessageLengthCounter(SMSSendViewModel counterTextView) {
         this.counterTextView = counterTextView;
     }
 
@@ -76,6 +78,6 @@ public class MessageLengthCounter implements TextWatcher {
 
         // show current length status info
         String counterText = "" + partLength + "/" + partsNumber;
-        counterTextView.setText(counterText);
+        counterTextView.getCounterTextViewText().setValue(counterText);
     }
 }

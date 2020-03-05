@@ -23,15 +23,15 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.support.annotation.AttrRes;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.NotificationCompat;
+import androidx.annotation.AttrRes;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.NotificationCompat;
 
 import com.kaliturin.blacklist.R;
 import com.kaliturin.blacklist.activities.MainActivity;
 
-import static android.support.v4.app.NotificationCompat.PRIORITY_MAX;
+import static androidx.core.app.NotificationCompat.PRIORITY_MAX;
 
 /**
  * Status bar & ringtone/vibration notification

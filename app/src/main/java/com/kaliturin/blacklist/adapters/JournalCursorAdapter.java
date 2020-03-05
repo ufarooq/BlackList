@@ -18,8 +18,8 @@ package com.kaliturin.blacklist.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.CursorAdapter;
+import androidx.annotation.Nullable;
+import androidx.cursoradapter.widget.CursorAdapter;
 import android.text.TextUtils;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;

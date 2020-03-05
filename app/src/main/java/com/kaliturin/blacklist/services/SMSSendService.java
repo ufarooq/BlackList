@@ -19,7 +19,7 @@ package com.kaliturin.blacklist.services;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.kaliturin.blacklist.utils.SMSSendHelper;
 

@@ -20,8 +20,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.util.LongSparseArray;
+import androidx.fragment.app.Fragment;
+import androidx.collection.LongSparseArray;
 
 import com.kaliturin.blacklist.R;
 import com.kaliturin.blacklist.activities.CustomFragmentActivity;
